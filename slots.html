@@ -48,7 +48,7 @@
                 slots[duration].forEach(slot => {
                     const slotDiv = document.createElement('div');
                     slotDiv.classList.add('slot');
-                    slotDiv.innerHTML = `<a href="{{ url_for('form') }}?duration={{ duration }}&slot={{ slot }}" class="slot-link">{{ slot }}</a>`;
+                    slotDiv.innerHTML = `<a href="form.html?duration={{ duration }}&slot={{ slot }}" class="slot-link">{{ slot }}</a>`;
                     container.appendChild(slotDiv);
                 });
             } else {
