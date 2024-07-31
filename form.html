@@ -1,0 +1,46 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Form - Courage Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Courage Library Logo" class="logo">
+        <h1>Course Enrollment Form</h1>
+        <form action="{{ url_for('take_course') }}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="duration">Slot Duration:</label>
+            <input type="text" id="duration" name="duration" value="{{ duration }} Hours" readonly>
+            
+            <label for="slot">Slot Time:</label>
+            <input type="text" id="slot" name="slot" value="{{ slot }}" readonly>
+            
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="contact-info">
+            <p>Email: <a href="mailto:couragelibrary07@gmail.com">couragelibrary07@gmail.com</a></p>
+            <p>Phone: <a href="tel:+8888889999">8888889999</a></p>
+            <p>WhatsApp: <a href="https://www.whatsapp.com/couragelibrary">Join our WhatsApp group</a></p>
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/couragelibrary">Instagram</a> |
+            <a href="https://www.linkedin.com/couragelibrary">LinkedIn</a> |
+            <a href="https://www.facebook.com/couragelibrary">Facebook</a>
+        </div>
+    </footer>
+</body>
+</html>

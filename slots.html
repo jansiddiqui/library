@@ -1,0 +1,60 @@
+<!-- slots.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Slot - Courage Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Courage Library Logo" class="logo">
+        <h1>Select Your Slot</h1>
+    </header>
+    <main class="main-content">
+        <div class="search-bar">
+            <input type="number" id="slot-duration" placeholder="Enter slot duration in hours" min="1" max="12">
+            <button onclick="filterSlots()">Search</button>
+        </div>
+        <div id="slots-container" class="slots-container"></div>
+    </main>
+    <footer class="footer">
+        <div class="contact-info">
+            <p>Email: <a href="mailto:couragelibrary07@gmail.com">couragelibrary07@gmail.com</a></p>
+            <p>Phone: <a href="tel:+8888889999">8888889999</a></p>
+            <p>WhatsApp: <a href="https://www.whatsapp.com/couragelibrary">Join our WhatsApp group</a></p>
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/couragelibrary">Instagram</a> |
+            <a href="https://www.linkedin.com/couragelibrary">LinkedIn</a> |
+            <a href="https://www.facebook.com/couragelibrary">Facebook</a>
+        </div>
+    </footer>
+    <script>
+        const slots = {
+            1: ['6am-7am', '7am-8am', '8am-9am', '9am-10am', '10am-11am', '11am-12pm', '12pm-1pm', '1pm-2pm', '2pm-3pm', '3pm-4pm', '4pm-5pm', '5pm-6pm', '6pm-7pm', '7pm-8pm', '8pm-9pm'],
+            2: ['6am-8am', '7am-9am', '8am-10am', '9am-11am', '10am-12pm', '11am-1pm', '12pm-2pm', '1pm-3pm', '2pm-4pm', '3pm-5pm', '4pm-6pm', '5pm-7pm', '6pm-8pm', '7pm-9pm'],
+            3: ['6am-9am', '7am-10am', '8am-11am', '9am-12pm', '10am-1pm', '11am-2pm', '12pm-3pm', '1pm-4pm', '2pm-5pm', '3pm-6pm', '4pm-7pm', '5pm-8pm', '6pm-9pm'],
+            // Add other durations similarly
+        };
+
+        function filterSlots() {
+            const duration = document.getElementById('slot-duration').value;
+            const container = document.getElementById('slots-container');
+            container.innerHTML = '';
+
+            if (slots[duration]) {
+                slots[duration].forEach(slot => {
+                    const slotDiv = document.createElement('div');
+                    slotDiv.classList.add('slot');
+                    slotDiv.innerHTML = `<a href="{{ url_for('take_course') }}?duration=${duration}&slot=${slot}" class="slot-link">${slot}</a>`;
+                    container.appendChild(slotDiv);
+                });
+            } else {
+                container.innerHTML = '<p>No slots available for this duration.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
