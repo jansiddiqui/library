@@ -55,7 +55,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-.btn {
+/* .btn {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
@@ -67,7 +67,39 @@ h1 {
 
 .btn:hover {
     background-color: #003b9a;
+} */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0056D2;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
+
+.btn:hover {
+    background-color: #0044A6; /* Change to a different color on hover */
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #28A745; /* Different background color for the new button */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #218838; /* Change to a different color on hover */
+}
+
+.btn, .btn-secondary {
+    margin-bottom: 10px; /* Adjust the spacing as needed */
+}
+
 
 .footer {
     background-color: #333;
